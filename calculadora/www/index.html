@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval'">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+
+<meta charset='utf-8'/>
+
+<title>Calculadora</title>
+
+<script src="js/brython.js"></script>
+<script src="js/brython_stdlib.js"></script>
+<link rel='stylesheet' href='css/index.css'/>
+
+<script type="text/javascript">
+
+function startBrython(){
+    document.addEventListener('deviceready', brython, false);
+}
+
+</script>
+
+</head>
+
+<body onload='startBrython();'>
+
+
+<!-- AQUÍ VAMOS A DEFINIR EL ESQUELETO DE LA APLICACIÓN -->
+<div id='app'>
+
+    <div id='resultado'>0</div>
+
+    <div id='clear-buttons'>
+        <button id='del_all' class='clear_btn'>DEL</button>
+        <button id='del_one' class='clear_btn'><pre><<</pre></button>
+    </div>
+
+    <div id='buttons'>
+
+        <div>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>/</button>
+        </div>
+        <div>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>x</button>
+        </div>
+        <div>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>-</button>
+        </div>
+        <div>
+            <button>0</button>
+            <button>,</button>
+            <button id='calcular'>=</button>
+            <button>+</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script type="text/javascript" src="cordova.js"></script>
+
+<script type="text/python3">
+
+from browser import ajax, run_script
+
+ajax.get('app.py', oncomplete=lambda req: run_script(req.text))
+
+</script>
+
+</body>
+
+</html>

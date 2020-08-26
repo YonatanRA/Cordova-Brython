@@ -1,0 +1,66 @@
+* {
+    box-sizing:border-box;                /* Hacemos que el ancho y alto de cada elemento se calcule incluyendo el espacio ocupado por las propiedades css border y padding */
+    margin:0px;                           /* Eliminamos el margen de todos los elementos del documento HTML, ya que la propiedad margin no la controlamos con la propiedad anterior */
+}
+
+body {
+    width:100vw;                          /* Hacemos que el cuerpo del documento ocupe todo el ancho de la pantalla, pero sin ser mayor que la pantalla (no queremos scroll) */
+    height:100vh;                         /* Hacemos que el cuerpo del documento ocupe todo el alto de la pantalla, pero sin ser mayor que la pantalla (no queremos scroll) */
+}
+
+
+#app {
+    width:100%;                           /* El div principal debe ocupar todo el ancho disponible (como el ancho es 100vw para body, #app ocupará todo el ancho de la pantalla) */
+    height:100%;                          /* El div principal debe ocupar todo el alto disponible (como el alto el 100vh para body, #app ocupará todo el alto de la pantalla) */
+    display:flex;                         /* Facilita el diseño de una estructura sin utilizar float o position */
+    flex-direction:column;                /* Hacemos que los elementos dentro de #app se organicen en una columna */
+}
+
+#resultado {
+    width:100%;                           /* La etiqueta en la que mostraremos el resultado de un cálculo es un div que debe ocupar todo el ancho disponible */
+    height:40%;                           /* Hacemos que ocupe el 40% del alto disponible, el resto lo ocuparán los botones */
+    font-size:4em;                        /* Aumentamos el tamaño del texto del div para que sea adecuado en la pantalla de un dispositivo móvil */
+    display:flex;                         /* Utilizamos flex para centrar el texto (números) del div mediante las propiedades justify-content y align-items */
+    justify-content:center;
+    align-items:center;
+    overflow:auto;                        /* Para que cuando el número mostrado sea muy grande no descoloque la interfaz (al ocupar un ancho mayor que el de la pantalla) */
+}
+
+button {
+    outline:none;                         /* Eliminamos los efectos por defecto de todos los botones */
+    border:1px solid black;               /* Definimos el borde para todos los botones */
+}
+
+#clear-buttons {
+    width:100%;                           /* Este div, como los demás, debe ocupar todo el ancho disponible */
+    height:10%;                           /* En este caso queremos que solamente ocupe el 10% del alto disponible */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.clear_btn {
+    width:50%;                            /* Como en #clear-buttons tenemos 2 botones, queremos que cada uno ocupe la mitad del ancho disponible */
+    height:100%;                          /* Queremos que cada uno de los .clear_btn ocupe todo el alto disponible (que ocupen toda la altura del div #clear-buttons) */
+    font-size:1.5em;
+    background:#6495ED;
+    color:#FFFAF0;
+    border-top:1.5px solid black;
+}
+
+#buttons {
+    width:100%;
+    height:50%;
+}
+
+#buttons > div {
+    width:100%;
+    height:25%;                           /* Como tenemos 4 filas de botones (4 divs) queremos que cada una ocupe el 25% del alto de su contenedor: 4 divs x 25% height = 100% height */
+    display:flex;
+}
+
+#buttons > div > button {
+    width:25%;                            /* Como cada fila contiene 4 botones, queremos que cada uno ocupe el 25% del ancho, y entre todos ocupen el 100%: 4 botones x 25% width = 100% width */
+    font-size:2em;
+    background:#B0C4DE;
+}
